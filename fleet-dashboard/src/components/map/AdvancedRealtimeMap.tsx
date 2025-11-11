@@ -122,7 +122,7 @@ export default function AdvancedRealtimeMap({
         fillColor: '#10b981',
         color: '#fff',
         weight: 2,
-        fillOpacity: 0.8,
+        fillOpacity: 1,
       })
         .bindPopup('🟢 Trip Start')
         .addTo(map.current!);
@@ -143,9 +143,9 @@ export default function AdvancedRealtimeMap({
         (loc) => [loc.lat, loc.lng] as [number, number]
       );
       const plannedPolyline = L.polyline(plannedLatlngs, {
-        color: '#d1d5db',
-        weight: 2,
-        opacity: 0.4,
+        color: '#0066ffff',
+        weight: 5,
+        opacity: 1,
         dashArray: '5, 5',
       }).addTo(map.current!);
 
@@ -155,8 +155,8 @@ export default function AdvancedRealtimeMap({
       );
       const traveledPolyline = L.polyline(traveledLatlngs, {
         color: '#dc2626', // Bold red
-        weight: 5, // Thicker line
-        opacity: 0.9,
+        weight: 10, // Thicker line
+        opacity: 1,
         className: 'traveled-route',
       }).addTo(map.current!);
 
