@@ -2,7 +2,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState, AppDispatch } from '@/app/store';
 import { selectTrip } from '@/features/dashboard/uiSlice';
-import MapComponent from '@/components/map/MapComponent';
+import MapWithCursor from '@/components/map/MapWithCursor';
 import KPIGrid from '@/components/dashboard/KPIGrid';
 
 export default function MainContent() {
@@ -12,9 +12,9 @@ export default function MainContent() {
 
   return (
     <main className="flex-1 flex flex-col gap-4 p-4 bg-light dark:bg-dark overflow-y-auto">
-      {/* Map Section */}
-      <div className="flex-1 bg-white dark:bg-slate-800 rounded-lg shadow-card overflow-hidden">
-        <MapComponent
+      {/* Map Section with Visible Moving Cursor */}
+      <div className="flex-1 bg-white dark:bg-slate-800 rounded-lg shadow-card overflow-hidden relative">
+        <MapWithCursor
           trips={Object.values(trips)}
           selectedTripId={selectedTripId}
           onSelectTrip={(id) => dispatch(selectTrip(id))}
